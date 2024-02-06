@@ -10,6 +10,7 @@ import  Paginator from './components/Paginator'
 import  Loading from './components/Loading'
 import  Error from './components/Error'
 
+import { getAllArticles } from './utils/api';
 
 function App() {
 
@@ -18,9 +19,9 @@ function App() {
   const [articles, setArticles] = useState([{}]);
 
   useEffect(()=>{
-    axios.get(`https://nc-news-api-n397.onrender.com/api/articles`)
-    .then((response) => {
-    setArticles(response.data.articles);
+    getAllArticles()
+    .then((data) => {
+    setArticles(data.articles);
     })
     .catch((error)=>{
       setError(error);
