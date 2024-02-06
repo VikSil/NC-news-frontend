@@ -18,7 +18,7 @@ export default function IconAndCount(props){
     }
 
     return (
-        <div className='d-inline-flex ms-3 p-1'>
+        <div className='icon-and-count d-inline-flex ms-3 p-1'>
             <img className = "icon align-self-center" src= {icon} alt = {altText}/>
             <p className="lead mb-0 align-self-center" >{count}</p>
         </div>

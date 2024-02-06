@@ -32,3 +32,28 @@ h3 {
 .css-19xm0h7-MuiButtonBase-root-MuiPaginationItem-root {
   border-color: darkred;
 }
+
+/* 
+  IconAndCount components first pop to a new line
+  below this width on ArticleCart
+*/
+@media only screen and (max-width: 471px) {
+  .author {
+    text-align: center !important;
+  }
+
+  .timestamp {
+    text-align: center !important;
+  }
+
+  .icon-and-count-pair {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .icon-and-count {
+    margin-left: auto !important;
+    margin-right: auto !important;
+    justify-content: center;
+  }
+}
