@@ -28,3 +28,7 @@ h3 {
   font-size: 1.2em;
   font-style: italic;
 }
+
+.css-19xm0h7-MuiButtonBase-root-MuiPaginationItem-root {
+  border-color: darkred;
+}

@@ -1,13 +1,15 @@
 import './App.css'
-import  NavBar from './components/NavBar'
-import  Paginator from './components/Paginator'
-import  Loading from './components/Loading'
-import  Error from './components/Error'
 
 import axios from "axios";
 
 import {useEffect, useState } from 'react'
 import {Routes, Route} from 'react-router-dom';
+
+import  NavBar from './components/NavBar'
+import  Paginator from './components/Paginator'
+import  Loading from './components/Loading'
+import  Error from './components/Error'
+
 
 function App() {
 
