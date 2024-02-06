@@ -1,17 +1,14 @@
 import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
 
 import {useState} from 'react'
 
 import ArticleCard from "./ArticleCard"
 
-
-
 export default function Paginator(props){
     const {items, itemType} = props
 
 
-    // everything that Paginator needs
+    // everything that MUI Pagination needs
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 10;
     const lastItem = currentPage * itemsPerPage;

@@ -1,4 +1,8 @@
-h2 {
+#article-img {
+  width: 25vw;
+}
+
+.h2-styled-as-h3 {
   font-weight: bold;
   font-size: calc(1.3rem + 0.6vw);
   line-height: 1.2;
@@ -55,9 +59,19 @@ h2 {
     margin-right: auto;
   }
 
+
+}
+
+@media only screen and (max-width: 768px) {
   .icon-and-count {
     margin-left: auto !important;
     margin-right: auto !important;
     justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 780px) {
+  #article-img {
+    display: none;
   }
 }

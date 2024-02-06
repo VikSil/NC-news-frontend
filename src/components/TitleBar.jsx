@@ -9,8 +9,3 @@ export default function TitleBar(){
         </>
     )
 }
-
-{/* <div className="header d-flex m-4"> 
-<Link to="/" className="align-self-center ps-5" id ="home-link" >Home</Link>
-<h1 className="flex-fill text-primary">Northcoders Marketplace</h1>
-</div> */}
