@@ -26,7 +26,11 @@ export default function ArticlesList(){
         
     }, [])
 
-    let content = (<Paginator items = {articles} itemType ="articles"/>)
+    let content = (
+        <section className="mx-5 mt-4">
+            <Paginator items = {articles} itemType ="articles"/>
+        </section>
+    )
 
     if(isLoading) { content =  <Loading /> }      
   

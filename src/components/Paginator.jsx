@@ -22,7 +22,7 @@ export default function Paginator(props){
     }
 
     return (
-        <main className="d-flex justify-content-center flex-wrap mx-5 mt-4">
+        <main className="d-flex justify-content-center flex-wrap">
             {itemType ==="articles" &&
                 currentItems.map((item, index)=> {
                     return (
@@ -41,7 +41,12 @@ export default function Paginator(props){
                )
             }
         
-            <Pagination className = "my-4" count={numberOfPages} variant="outlined" shape="rounded" onChange={handlePagination}/>
+            {numberOfPages>1 &&  
+            <nav className='w-100 '>
+                <Pagination className = "my-4" count={numberOfPages} variant="outlined" shape="rounded" onChange={handlePagination}/>
+            </nav>
+            }
+           
         </main>
     )
 }
