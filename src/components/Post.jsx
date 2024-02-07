@@ -16,10 +16,10 @@ export default function Post(props){
             {postType=== "article"?
                 <section className="d-flex flex-column flex-md-row justify-content-end">
                     <h2 className="text-center mb-md-4 mx-auto">{post.title}</h2>
-                    <IconAndCount type = "likes" count = {post.votes}/>
+                    <IconAndCount type = "likes" count = {post.votes} active = {true} parentType = {postType} parentId = {post.article_id}/>
                 </section> 
             :   <section className="d-flex justify-content-end">
-                   <IconAndCount type = "likes" count = {post.votes}/> 
+                   <IconAndCount type = "likes" count = {post.votes} /> 
                 </section>}
 
             {postType=== "article"?

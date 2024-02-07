@@ -26,10 +26,24 @@
   border-radius: 2rem;
 }
 
-.icon {
+.icon,
+.icon-active,
+.icon-hover {
   width: 2.2rem;
   height: 2.2rem;
   margin-right: 0.4rem;
+}
+
+.icon-and-count img.icon-hover {
+  display: none;
+}
+
+.icon-and-count:hover img.icon-hover {
+  display: inline;
+}
+
+.icon-and-count:hover img.icon-active {
+  display: none;
 }
 
 .author {
