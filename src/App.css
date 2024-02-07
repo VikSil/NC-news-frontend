@@ -1,5 +1,15 @@
 #article-img {
   width: 25vw;
+  height: auto;
+}
+
+.avatar {
+  min-width: 7rem;
+}
+
+.avatar-img {
+  width: calc(2rem + 2.7vw);
+  height: calc(2rem + 2.7vw);
 }
 
 .h2-styled-as-h3 {
@@ -27,22 +37,30 @@
 }
 
 .icon,
-.icon-active,
 .icon-hover {
   width: 2.2rem;
   height: 2.2rem;
   margin-right: 0.4rem;
+  margin-left: 0.4rem;
 }
 
 .icon-and-count img.icon-hover {
   display: none;
 }
 
-.icon-and-count:hover img.icon-hover {
+.icon-left:hover img.icon-hover {
   display: inline;
 }
 
-.icon-and-count:hover img.icon-active {
+.icon-left:hover img.icon {
+  display: none;
+}
+
+.icon-right:hover img.icon-hover {
+  display: inline;
+}
+
+.icon-right:hover img.icon {
   display: none;
 }
 
@@ -104,9 +122,14 @@
     margin-left: auto;
     margin-right: auto;
   }
+
+  .nav-bar {
+    flex-wrap: wrap;
+  }
 }
 
-@media only screen and (max-width: 768px) {
+/* Bootstrap's md breakpoint*/
+@media only screen and (max-width: 767px) {
   .icon-and-count {
     margin-left: auto !important;
     margin-right: auto !important;

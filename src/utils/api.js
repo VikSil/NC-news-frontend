@@ -31,9 +31,9 @@ export const getComments = (article_id) => {
     });
 };
 
-export const patchArticleVotes = (article_id)=>{
+export const patchArticleVotes = (vote_count = 1, article_id)=>{
     const URL = `https://nc-news-api-n397.onrender.com/api/articles/${article_id}`;
-    const data = {inc_votes: 1};
+    const data = { inc_votes: vote_count };
 
     return axios
       .patch(URL, data)

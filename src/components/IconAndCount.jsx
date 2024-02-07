@@ -1,9 +1,10 @@
 import {useState} from 'react'
 
-import default_icon from '../assets/img/default_icon.png';
-import heart_icon from '../assets/img/heart.png';
-import heart_hover_icon from '../assets/img/heart_hover.png';
-import comment_icon from '../assets/img/comment.png';
+import icon_like from '../assets/img/heart.png';
+import icon_like_hover from '../assets/img/heart_hover.png';
+import icon_dislike from '../assets/img/sad.png'
+import icon_dislike_hover from '../assets/img/angry.png'
+import icon_comment from '../assets/img/comment.png';
 
 import { patchArticleVotes } from '../utils/api';
 
@@ -13,35 +14,38 @@ export default function IconAndCount(props){
     const [optimisticCount, setOptimisticCount] = useState(count)
     const [error, setError] = useState(false);
 
-    let icon = default_icon
-    let altText = "icon in a shape of a red X"
-    let icon_hover = default_icon
-    let altText_hover = altText
+    const altText_like = "red heart icon"
+    const altText_like_hover = "growing heart icon"
+    const altText_dislike = "sad face icon"
+    const altText_dislike_hover = "angry face icon"
+
+    let icon = icon_like;
+    let icon_hover = icon_like_hover;
+    let altText  = altText_like;
+    let altText_hover = altText_like_hover;
 
     if (type === "likes") {
-        icon = heart_icon
-        altText = "heart icon"
-        icon_hover = heart_hover_icon 
-        altText_hover = "growing heart icon"
+        icon = count>=0 ? icon_like : icon_dislike;
+        altText = count >= 0 ? altText_like : altText_dislike
+        icon_hover = count>=0 ? icon_like_hover : icon_dislike_hover;
+        altText_hover = count >= 0 ? altText_like_hover : altText_dislike_hover
     }
+
     if (type === "comments") {
-        icon = comment_icon
+        icon = icon_comment
         altText = "icon of a pencil and paper"
     }
 
-    if (active){console.log("The like button is enabled")}
-
-    function handleLike() {
+    function handleLike(vote_count) {
         if (parentType === "article"){
-            setOptimisticCount(optimisticCount +1 );
+            setOptimisticCount(optimisticCount + vote_count );
             setError(null);
-            patchArticleVotes(parentId)
+            patchArticleVotes(vote_count, parentId) 
             .catch((err)=>{
-                setOptimisticCount(optimisticCount +1 );
+                setOptimisticCount(optimisticCount + vote_count );
                 setError(null);
             })
         }
-
     }
 
     return (
@@ -50,9 +54,16 @@ export default function IconAndCount(props){
                 <>
                     <div className='d-flex flex-column'>
                         <div className='d-inline-flex'>
-                            <img className = "icon-active align-self-center" src= {icon} alt = {altText}/>
-                            <img className = "icon-hover align-self-center" src= {icon_hover} alt = {altText_hover} onClick = {handleLike}/>
-                            <p className="lead mb-0 align-self-center" >{optimisticCount}</p>
+                            <div className='icon-left'>
+                                <img className = "icon align-self-center" src= {icon_like} alt = {altText_like}/>
+                                <img className = "icon-hover align-self-center" src= {icon_like_hover} alt = {altText_like_hover} onClick = {() => handleLike(1)}/>
+                            </div>
+                            
+                                <p className="lead mb-0 align-self-center" >{optimisticCount}</p>
+                            <div className='icon-right'>
+                                <img className = "icon align-self-center" src= {icon_dislike} alt = {altText_dislike}/>
+                                <img className = "icon-hover align-self-center" src= {icon_dislike_hover} alt = {altText_dislike_hover} onClick = {() => handleLike(-1)}/>
+                            </div>
                         </div>
                         {error? <p className='text-danger'>Error occured</p>: null}
                     </div>
