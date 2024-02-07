@@ -3,6 +3,7 @@ import Pagination from '@mui/material/Pagination';
 import {useState} from 'react'
 
 import ArticleCard from "./ArticleCard"
+import Post from './Post';
 
 export default function Paginator(props){
     const {items, itemType} = props
@@ -21,18 +22,31 @@ export default function Paginator(props){
     }
 
     return (
-        <main className="d-flex justify-content-center flex-wrap mx-5 mt-4">
-            {itemType ==="articles" ?
+        <main className="d-flex justify-content-center flex-wrap">
+            {itemType ==="articles" &&
                 currentItems.map((item, index)=> {
                     return (
                        <ArticleCard key = {index} article = {item}/>
                    )
                }
-               ):
-                null
-        }
+               )
+            }
+
+            {itemType ==="comments" &&
+                currentItems.map((item, index)=> {
+                    return (
+                       <Post key = {index} post = {item} postType = "comment"/>
+                   )
+               }
+               )
+            }
         
-            <Pagination className = "my-4" count={numberOfPages} variant="outlined" shape="rounded" onChange={handlePagination}/>
+            {numberOfPages>1 &&  
+            <nav className='w-100 '>
+                <Pagination className = "my-4" count={numberOfPages} variant="outlined" shape="rounded" onChange={handlePagination}/>
+            </nav>
+            }
+           
         </main>
     )
 }

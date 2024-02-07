@@ -17,3 +17,18 @@ export const getArticles = (article_id) => {
       throw error;
     });
 };
+
+export const getComments = (article_id) => {
+  let URL = `https://nc-news-api-n397.onrender.com/api/articles/${article_id}/comments`;
+
+  return axios
+    .get(URL)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      throw error;
+    });
+};
+
+;

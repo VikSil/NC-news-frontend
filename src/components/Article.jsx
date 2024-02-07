@@ -4,6 +4,7 @@ import {useEffect, useState} from "react";
 import { getArticles } from '../utils/api';
 
 import Post from './Post';
+import CommentsList from './CommentsList';
 import Loading from './Loading'
 import Error from './Error'
 
@@ -30,8 +31,9 @@ export default function Article(){
     }, [])
 
     let content = (
-        <main className="d-flex justify-content-center mx-5 mt-4">    
+        <main className="d-flex flex-column justify-content-center mx-5 mt-4">    
             <Post post = {currentArticle} postType = "article"/>
+            <CommentsList article_id= {article_id}/>
         </main> 
     )
   
