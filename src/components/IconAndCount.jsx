@@ -1,3 +1,5 @@
+import {useState} from 'react'
+
 import default_icon from '../assets/img/default_icon.png';
 import heart_icon from '../assets/img/heart.png';
 import heart_hover_icon from '../assets/img/heart_hover.png';
@@ -7,6 +9,8 @@ import { patchArticleVotes } from '../utils/api';
 
 export default function IconAndCount(props){
     const {type, count, active, parentType, parentId} = props 
+
+    const [optimisticCount, setOptimisticCount] = useState(count)
 
     let icon = default_icon
     let altText = "icon in a shape of a red X"
@@ -28,6 +32,7 @@ export default function IconAndCount(props){
 
     function handleLike() {
         if (parentType === "article"){
+            setOptimisticCount(optimisticCount +1 );
             patchArticleVotes(parentId)
         }
 
@@ -39,12 +44,16 @@ export default function IconAndCount(props){
                 <>
                     <img className = "icon-active align-self-center" src= {icon} alt = {altText}/>
                     <img className = "icon-hover align-self-center" src= {icon_hover} alt = {altText_hover} onClick = {handleLike}/>
+                    <p className="lead mb-0 align-self-center" >{optimisticCount}</p>
                 </>
             :
-                <img className = "icon align-self-center" src= {icon} alt = {altText}/>
+                <>
+                    <img className = "icon align-self-center" src= {icon} alt = {altText}/>
+                    <p className="lead mb-0 align-self-center" >{count}</p>
+                </>
             }
 
-            <p className="lead mb-0 align-self-center" >{count}</p>
+            
         </div>
     )
 }
