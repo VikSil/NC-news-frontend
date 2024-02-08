@@ -12,14 +12,30 @@ export default function CommentForm(props){
     const [commentPending, setCommentPending] = useState(false);
     const [error, setError] = useState(null);
 
+    // used to generate a unique temporary id for an optimistically 
+    // rendered comment that will be replaced with the actual id
+    // once POST request responds  
+    const generateId= (length) => {
+        let result = '';
+        const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+        const charactersLength = characters.length;
+        let counter = 0;
+        while (counter < length) {
+          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+          counter += 1;
+        }
+        return result;
+    }
+
     const handleNewComment = (event) =>{
 
         event.preventDefault();
 
         // set everything locally
         const rightNow = new Date(Date.now())
+        const randomId = generateId(12)
         const newComment = {
-            comment_id: 0,
+            comment_id: randomId,
             body: newCommentBody,
             article_id: 0,
             author: user,
@@ -36,6 +52,12 @@ export default function CommentForm(props){
         postComment(article_id, {username: user, body:newCommentBody})
         .then((data) => {
             setError(null);
+            setComments((currentComments) =>{
+                const commentPosition = currentComments.findIndex(comment => comment.comment_id === randomId);
+                const refreshedComments = [...currentComments]
+                refreshedComments[commentPosition] = data.comment;
+                return refreshedComments
+            });
         })
         .catch((error)=>{
             setError(error);

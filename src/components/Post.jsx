@@ -5,10 +5,9 @@ import { UserContext } from '../contexts/UserContext';
 import IconAndCount from "./IconAndCount"
 
 export default function Post(props){
-    const {post, postType} = props
+    const {post, postType, refreshComments} = props
     const { user } = useContext(UserContext);
     
-    const [postExists, setPostExists] = useState(true);
     const [deletePending, setDeletePending] = useState(false)
     const [error, setError] = useState(null);
     
@@ -17,14 +16,17 @@ export default function Post(props){
     const differentUser = !(post.author === user)
 
     const rootClassName = `${postType} flex-fill native-border my-3 mx-4 py-3 px-4 `
- 
+
     const removeComment = (event) => {
         event.preventDefault();
+
         setDeletePending(true);
         deleteComment(post.comment_id)
+
         .then((data)=>{
-            setPostExists(false);
             setDeletePending(false);
+            refreshComments(post.comment_id);
+
         })
         .catch((error)=>{
             setError(error);
@@ -32,8 +34,6 @@ export default function Post(props){
     }
 
     return (
-        <>
-        {postExists ? 
             <article className={rootClassName} >
                 {error && <p className = "w-100 mt-3 ">An error occured: {error}</p>}
 
@@ -66,11 +66,6 @@ export default function Post(props){
                     null    
                 }
                 <p className="timestamp mb-0 align-self-end text-end">{created}</p>
-
             </article > 
-        
-        :   null
-        }      
-        </>
     )
 }
