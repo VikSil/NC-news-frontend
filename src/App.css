@@ -69,6 +69,10 @@
   font-style: italic;
 }
 
+.comment {
+  width: 100%;
+}
+
 .css-wjh20t-MuiPagination-ul {
   justify-content: center;
 }
@@ -76,7 +80,8 @@
 /* 
   Overrides for Bootstrap's Accordion
 */
-.accordion-item {
+.accordion-item,
+#comment-box {
   border-color: darkred;
   color: inherit;
 }
@@ -85,7 +90,8 @@
   border-color: darkred;
 }
 
-.accordion-button {
+.accordion-button,
+.native-button {
   background-color: #fff1e5;
   color: inherit;
 }
@@ -100,18 +106,26 @@
   color: darkred;
 }
 
-.accordion-button:focus {
+.accordion-button:focus,
+#comment-box {
   border-color: darkred;
   box-shadow: 0 0 0 0.25rem rgba(139, 0, 0, 0.2);
 }
+
+@media only screen and (max-width: 471px) {
+  .author {
+    text-align: center !important;
+  }
+}
+
 
 /* 
   IconAndCount components first pop to a new line
   below this width on ArticleCart
 */
-@media only screen and (max-width: 471px) {
+@media only screen and (max-width: 345px) {
   .author {
-    text-align: center !important;
+    font-size: 1rem;
   }
 
   .timestamp {

@@ -7,9 +7,9 @@ import  Error from './Error'
 import  Paginator from './Paginator'
 
 export default function CommentsList(props){
-    const {article_id} =props
+    const {article_id, comments, setComments} =props
 
-    const [comments, setComments] = useState([{}]);
+
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState(null);
 
