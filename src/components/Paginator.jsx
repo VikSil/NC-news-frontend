@@ -6,7 +6,7 @@ import ArticleCard from "./ArticleCard"
 import Post from './Post';
 
 export default function Paginator(props){
-    const {items, itemType} = props
+    const {items, itemType, refreshComments} = props
 
 
     // everything that MUI Pagination needs
@@ -35,7 +35,7 @@ export default function Paginator(props){
             {itemType ==="comments" &&
                 currentItems.map((item, index)=> {
                     return (
-                       <Post key = {index} post = {item} postType = "comment"/>
+                       <Post key = {index} post = {item} postType = "comment" refreshComments = {refreshComments}/>
                    )
                }
                )

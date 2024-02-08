@@ -9,9 +9,16 @@ import  Paginator from './Paginator'
 export default function CommentsList(props){
     const {article_id, comments, setComments} =props
 
-
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState(null);
+
+    const refreshComments = (comment_id) => {
+        setComments((currentComments) =>{
+            let refreshedComments = [...currentComments]
+            refreshedComments = refreshedComments.filter(comment =>comment.comment_id !== comment_id);
+            return refreshedComments
+        });
+    }
 
     useEffect(()=>{
         getComments(article_id)
@@ -39,14 +46,14 @@ export default function CommentsList(props){
                     </h2>
                     <div id="collapseOne" className="accordion-collapse collapse show" data-bs-parent="#comment-accordion">
                     <div className="accordion-body">
-                        <Paginator items = {comments} itemType ="comments"/>
+                        <Paginator items = {comments} itemType ="comments" refreshComments ={refreshComments}/>
                     </div>
                     </div>
                 </div>
             </div>
 
             <section className="native-border d-none d-md-inline mx-4 mt-4">
-                <Paginator items = {comments} itemType ="comments"/>
+                <Paginator items = {comments} itemType ="comments" refreshComments ={refreshComments}/>
             </section>
         </>
     )
