@@ -10,9 +10,11 @@ export default function Post(props){
     const created = post.created_at.slice(0,10) + " " + post.created_at.slice(11,16)
 
     const active = !(post.author === user)
+
+    const className = `${postType} flex-fill native-border my-3 mx-4 py-3 px-4 `
  
     return (
-        <article className="flex-fill native-border my-3 mx-4 py-3 px-4 ">
+        <article className={className} >
 
             {postType=== "article"?
                 <p className="author text-end">{post.author}</p>
