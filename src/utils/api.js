@@ -56,3 +56,16 @@ export const postComment = (article_id, data) => {
       throw error;
     });
 };
+
+export const deleteComment = (comment_id) => {
+  const URL = `https://nc-news-api-n397.onrender.com/api/comments/${comment_id}`;
+
+  return axios
+    .delete(URL)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      throw error;
+    });
+};

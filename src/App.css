@@ -112,13 +112,6 @@
   box-shadow: 0 0 0 0.25rem rgba(139, 0, 0, 0.2);
 }
 
-@media only screen and (max-width: 471px) {
-  .author {
-    text-align: center !important;
-  }
-}
-
-
 /* 
   IconAndCount components first pop to a new line
   below this width on ArticleCart
@@ -128,10 +121,6 @@
     font-size: 1rem;
   }
 
-  .timestamp {
-    text-align: center !important;
-  }
-
   .icon-and-count-pair {
     margin-left: auto;
     margin-right: auto;
@@ -139,6 +128,28 @@
 
   .nav-bar {
     flex-wrap: wrap;
+  }
+}
+
+@media only screen and (max-width: 452px) {
+  .timestamp {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 471px) {
+  .author {
+    text-align: center !important;
+  }
+}
+
+@media only screen and (max-width: 490px) {
+  .timestamp {
+    display: inline-block;
+    text-align: center !important;
+  }
+  .delete-comment-btn {
+    float: none!important;
   }
 }
 
