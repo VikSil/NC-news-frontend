@@ -1,3 +1,5 @@
+import {useParams} from 'react-router-dom';
+
 import {useEffect, useState } from 'react'
 
 import { getArticles } from '../utils/api';
@@ -8,14 +10,27 @@ import  Paginator from './Paginator'
 
 export default function ArticlesList(){
 
+    const {category} = useParams();
+
     const [articles, setArticles] = useState([{}]);
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState(null);
 
+    const loadArticles = (fetchedArticles) => {
+        if (category){
+            let filteredArticles = [...fetchedArticles];
+            filteredArticles = filteredArticles.filter(article => article.topic === category);
+            setArticles(filteredArticles);
+        }
+        else {
+            setArticles(fetchedArticles);
+        }
+    }
+
     useEffect(()=>{
         getArticles()
         .then((data) => {
-            setArticles(data.articles);
+            loadArticles(data.articles);
         })
         .catch((error)=>{
             setError(error);
@@ -24,7 +39,7 @@ export default function ArticlesList(){
             setIsLoading(false);
         })
         
-    }, [])
+    }, [category])
 
     let content = (
         <section className="mx-5 mt-4">

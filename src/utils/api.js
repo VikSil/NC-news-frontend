@@ -17,6 +17,19 @@ export const getArticles = (article_id) => {
     });
 };
 
+export const getTopics = () => {
+  let URL = "https://nc-news-api-n397.onrender.com/api/topics";
+
+  return axios
+    .get(URL)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      throw error;
+    });
+};
+
 export const getComments = (article_id) => {
   const URL = `https://nc-news-api-n397.onrender.com/api/articles/${article_id}/comments`;
 

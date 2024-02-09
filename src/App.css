@@ -5,11 +5,17 @@
 
 .avatar {
   min-width: 7rem;
+  min-height: 7rem;
 }
 
 .avatar-img {
   width: calc(2rem + 2.7vw);
   height: calc(2rem + 2.7vw);
+}
+
+.avatar svg {
+  font-size: 3rem;
+  margin: auto;
 }
 
 .h2-styled-as-h3 {
@@ -22,6 +28,33 @@
 
 .nav-bar {
   border-bottom-style: solid;
+}
+
+.sidenav {
+  width: 320px;
+  position: absolute;
+  background: #fff1e5;
+  height: 95vh;
+  left: -150%;
+  transition: all 0.7s;
+  border-right: darkred;
+  border-right-style: dotted;
+  border-right-width: 1px;
+}
+
+.sidenav.active {
+  left: 0;
+}
+
+.sidenav ul li {
+  background: #fff1e5;
+  border-color: darkred;
+  border-style: dotted;
+  color: inherit;
+}
+
+.sidenav ul li a p:hover {
+  background-color: rgba(139, 0, 0, 0.2) !important;
 }
 
 .undecorated-link {
@@ -125,10 +158,6 @@
     margin-left: auto;
     margin-right: auto;
   }
-
-  .nav-bar {
-    flex-wrap: wrap;
-  }
 }
 
 @media only screen and (max-width: 452px) {
@@ -149,7 +178,13 @@
     text-align: center !important;
   }
   .delete-comment-btn {
-    float: none!important;
+    float: none !important;
+  }
+}
+
+@media only screen and (max-width: 515px) {
+  .nav-bar {
+    flex-wrap: wrap;
   }
 }
 
