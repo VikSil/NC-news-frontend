@@ -76,11 +76,9 @@ export default function CommentForm(props){
                 <form className = "my-3 mx-4" onSubmit = {handleNewComment}>
                     <label className = "float-start" htmlFor = "comment-box" >Comment:</label>
                     <textarea id = "comment-box" className="form-control" rows= "3" value={newCommentBody} onChange={(event) => setNewCommentBody(event.target.value)}></textarea>
-                    {error && <p className = "float-start mt-3">An error occured: {error}</p>}
+                    {error && <p className = "float-start mt-3">An error occured: {error.message}</p>}
                     <button type = "submit" className="native-button native-border float-end my-3" disabled = {buttonDisabled}>Add Comment</button>
-                
                 </form>
-
             </section>
         </>
     )

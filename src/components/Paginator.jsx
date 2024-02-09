@@ -23,6 +23,9 @@ export default function Paginator(props){
 
     return (
         <main className="d-flex justify-content-center flex-wrap">
+            {currentItems.length ===0 &&
+            <p className = "my-3">{`There are no ${itemType} about this yet`}</p>}
+
             {itemType ==="articles" &&
                 currentItems.map((item, index)=> {
                     return (
@@ -45,8 +48,7 @@ export default function Paginator(props){
             <nav className='w-100 '>
                 <Pagination className = "my-4" count={numberOfPages} variant="outlined" shape="rounded" onChange={handlePagination}/>
             </nav>
-            }
-           
+            }           
         </main>
     )
 }
