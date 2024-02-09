@@ -41,7 +41,7 @@ export default function IconAndCount(props){
             setOptimisticCount(optimisticCount + vote_count );
             setError(null);
             patchArticleVotes(vote_count, parentId) 
-            .catch((err)=>{
+            .catch((error)=>{
                 setOptimisticCount(optimisticCount + vote_count );
                 setError(null);
             })
@@ -65,6 +65,7 @@ export default function IconAndCount(props){
                                 <img className = "icon-hover align-self-center" src= {icon_dislike_hover} alt = {altText_dislike_hover} onClick = {() => handleLike(-1)}/>
                             </div>
                         </div>
+                        {/* Not going to render the exact error message, it will distort the CSS*/}
                         {error? <p className='text-danger'>Error occured</p>: null}
                     </div>
                 </>
@@ -75,9 +76,7 @@ export default function IconAndCount(props){
                         <p className="lead mb-0 align-self-center" >{count}</p>
                     </div>
                 </>
-            }
-
-            
+            }            
         </div>
     )
 }

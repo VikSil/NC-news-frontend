@@ -60,7 +60,7 @@ export default function CommentsList(props){
 
     if(isLoading) { content =  <Loading /> }      
   
-    if (error !== null) { content = <Error error = {error} /> }
+    if (error !== null) { content = <Error errorCode = {error.response.status} /> }
 
     return (
         <>
