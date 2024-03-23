@@ -106,8 +106,21 @@
   width: 100%;
 }
 
+/* 
+  Overrides for Paginator
+*/
+
 .css-wjh20t-MuiPagination-ul {
   justify-content: center;
+}
+
+.css-19xm0h7-MuiButtonBase-root-MuiPaginationItem-root {
+  color: darkred !important;
+  border-color: rgba(139, 0, 0, 0.39) !important;
+}
+
+.css-19xm0h7-MuiButtonBase-root-MuiPaginationItem-root.Mui-selected {
+  background-color: rgba(139, 0, 0, 0.08) !important;
 }
 
 /* 
