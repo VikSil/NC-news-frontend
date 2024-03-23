@@ -52,7 +52,7 @@ export default function Post(props){
                 {postType=== "article"?
                     <section className="d-flex flex-row flex-xxl-column">
                         <img id = "article-img" className = "rounded me-4 mb-3 mx-xxl-auto" src= {post.article_img_url} alt = "" />
-                        <p className="text-start">{post.body}</p>
+                        <p className="article text-start">{post.body}</p>
                     </section>   
                 :   <p>{post.body}</p>
                 }

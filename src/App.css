@@ -4,6 +4,10 @@
   height: 100%;
 }
 
+.article {
+  white-space: pre-line;
+}
+
 .avatar {
   min-width: 7rem;
   min-height: 7rem;
