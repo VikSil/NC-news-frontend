@@ -37,19 +37,17 @@ export default function Post(props){
             <article className={rootClassName} >
                 {error && <p className = "w-100 mt-3 ">An error occured: {error}</p>}
 
-                {postType=== "article"?
-                    <p className="author text-end">{post.author}</p>
-                :   <p className="author text-start">{post.author}</p>
-                }
+                <section className="d-flex flex-wrap justify-content-between">
+                    <p className="author text-start">{post.author}</p>
+                    {postType=== "article"?
+                        <IconAndCount type = "likes" count = {post.votes} active = {differentUser} parentType = {postType} parentId = {post.article_id}/>
+                    : <IconAndCount type = "likes" count = {post.votes} /> 
+                    }
+                </section>
 
                 {postType=== "article"?
-                    <section className="d-flex flex-column flex-md-row justify-content-end">
                         <h2 className="text-center mb-md-4 mx-auto">{post.title}</h2>
-                        <IconAndCount type = "likes" count = {post.votes} active = {differentUser} parentType = {postType} parentId = {post.article_id}/>
-                    </section> 
-                :   <section className="d-flex justify-content-end">
-                    <IconAndCount type = "likes" count = {post.votes} /> 
-                    </section>}
+                :   <></>}
 
                 {postType=== "article"?
                     <section className="d-flex flex-row flex-xxl-column">

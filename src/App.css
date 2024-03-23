@@ -158,17 +158,16 @@
   box-shadow: 0 0 0 0.25rem rgba(139, 0, 0, 0.2);
 }
 
-/* 
-  IconAndCount components first pop to a new line
-  below this width on ArticleCart
-*/
+
 @media only screen and (max-width: 345px) {
   .author {
     font-size: 1rem;
   }
+}
 
+@media only screen and (max-width: 400px) {
   .icon-and-count-pair {
-    margin-left: auto;
+    margin-left: auto!important;
     margin-right: auto;
   }
 }
@@ -179,9 +178,15 @@
   }
 }
 
-@media only screen and (max-width: 471px) {
+@media only screen and (max-width: 485px) {
   .author {
-    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .icon-and-count {
+    margin-left: auto!important;
+    margin-right: auto;
   }
 }
 
@@ -198,15 +203,6 @@
 @media only screen and (max-width: 515px) {
   .nav-bar {
     flex-wrap: wrap;
-  }
-}
-
-/* Bootstrap's md breakpoint*/
-@media only screen and (max-width: 767px) {
-  .icon-and-count {
-    margin-left: auto !important;
-    margin-right: auto !important;
-    justify-content: center;
   }
 }
 
