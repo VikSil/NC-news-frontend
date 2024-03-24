@@ -21,7 +21,7 @@ export default function NavCard(props){
 
     return (
 
-        <aside className="avatar d-flex flex-column align-items-center justify-content-center native-border mx-4 py-2" onClick = {helperFunction} >
+        <aside className="avatar d-flex flex-column align-items-center justify-content-center native-border mx-4 my-1 py-2" onClick = {helperFunction} >
             {content}
         </aside>
 

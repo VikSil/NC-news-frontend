@@ -1,7 +1,8 @@
 textarea::-webkit-resizer {
   border-width: 8px;
   border-style: solid;
-  border-color: transparent rgba(139, 0, 0, 0.4) rgba(139, 0, 0, 0.4) transparent;
+  border-color: transparent rgba(139, 0, 0, 0.4) rgba(139, 0, 0, 0.4)
+    transparent;
 }
 
 #article-img {
@@ -199,6 +200,12 @@ textarea::-webkit-resizer {
   }
 }
 
+@media only screen and (max-width: 435px) {
+  .nav-bar {
+    flex-wrap: nowrap;
+  }
+}
+
 @media only screen and (max-width: 452px) {
   .timestamp {
     display: block;
@@ -227,9 +234,16 @@ textarea::-webkit-resizer {
   }
 }
 
-@media only screen and (max-width: 515px) {
+@media only screen and (max-width: 565px) {
   .nav-bar {
     flex-wrap: wrap;
+  }
+  .title-bar {
+    order: 3;
+  }
+  .avatar {
+    margin-left: 0.5rem !important;
+    margin-right: 0.5rem !important;
   }
 }
 
