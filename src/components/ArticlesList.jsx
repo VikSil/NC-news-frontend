@@ -42,6 +42,9 @@ export default function ArticlesList(){
 
     let content = (
         <section className="mx-5 mt-4">
+            {category?
+            <p>Latest articles about {category}</p>
+            :<p>Latest articles about Everything</p>}
             <Paginator items = {articles} itemType ="articles"/>
         </section>
     )
