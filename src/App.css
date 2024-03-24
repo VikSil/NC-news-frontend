@@ -1,3 +1,9 @@
+textarea::-webkit-resizer {
+  border-width: 8px;
+  border-style: solid;
+  border-color: transparent rgba(139, 0, 0, 0.4) rgba(139, 0, 0, 0.4) transparent;
+}
+
 #article-img {
   display: block;
   width: 25vw;
@@ -90,7 +96,7 @@
   Only allow hover effects on screens that have hover 
   (there is no such thing as hovering on mobile devices)
 */
-@media (hover:hover) {
+@media (hover: hover) {
   .icon-left:hover img.icon-hover {
     display: inline;
   }
