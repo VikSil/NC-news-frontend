@@ -57,11 +57,12 @@ export default function Post(props){
                 :   <p>{post.body}</p>
                 }
                 
-                {postType ==="comment" && !differentUser?
-                    <button className="delete-comment-btn native-button native-border float-start me-2 mb-2" disabled = {deletePending} onClick = {removeComment}>Delete Comment</button>
-                    
-                    :
-                    null    
+                {postType ==="comment" && !differentUser && !deletePending?
+                     <button className="delete-comment-btn native-button native-border float-start me-2 mb-2" onClick = {removeComment}>Delete Comment</button>                   
+                : postType ==="comment" && !differentUser?
+                        <p className='float-start me-2 mb-2'>Deleting comment...</p>
+                :
+                null    
                 }
                 <p className="timestamp mb-0 align-self-end text-end">{created}</p>
             </article > 
