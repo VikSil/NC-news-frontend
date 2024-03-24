@@ -86,20 +86,26 @@
   display: none;
 }
 
-.icon-left:hover img.icon-hover {
-  display: inline;
-}
+/* 
+  Only allow hover effects on screens that have hover 
+  (there is no such thing as hovering on mobile devices)
+*/
+@media (hover:hover) {
+  .icon-left:hover img.icon-hover {
+    display: inline;
+  }
 
-.icon-left:hover img.icon {
-  display: none;
-}
+  .icon-left:hover img.icon {
+    display: none;
+  }
 
-.icon-right:hover img.icon-hover {
-  display: inline;
-}
+  .icon-right:hover img.icon-hover {
+    display: inline;
+  }
 
-.icon-right:hover img.icon {
-  display: none;
+  .icon-right:hover img.icon {
+    display: none;
+  }
 }
 
 .author {

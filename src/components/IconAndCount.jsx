@@ -55,13 +55,13 @@ export default function IconAndCount(props){
                     <div className='d-flex flex-column'>
                         <div className='d-inline-flex'>
                             <div className='icon-left'>
-                                <img className = "icon align-self-center" src= {icon_like} alt = {altText_like}/>
+                                <img className = "icon align-self-center" src= {icon_like} alt = {altText_like} onClick = {() => handleLike(1)}/>
                                 <img className = "icon-hover align-self-center" src= {icon_like_hover} alt = {altText_like_hover} onClick = {() => handleLike(1)}/>
                             </div>
                             
                                 <p className="lead mb-0 align-self-center" >{optimisticCount}</p>
                             <div className='icon-right'>
-                                <img className = "icon align-self-center" src= {icon_dislike} alt = {altText_dislike}/>
+                                <img className = "icon align-self-center" src= {icon_dislike} alt = {altText_dislike} onClick = {() => handleLike(-1)}/>
                                 <img className = "icon-hover align-self-center" src= {icon_dislike_hover} alt = {altText_dislike_hover} onClick = {() => handleLike(-1)}/>
                             </div>
                         </div>
