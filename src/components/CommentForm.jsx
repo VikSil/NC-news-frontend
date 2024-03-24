@@ -31,44 +31,48 @@ export default function CommentForm(props){
 
         event.preventDefault();
 
-        // set everything locally
-        const rightNow = new Date(Date.now())
-        const randomId = generateId(12)
-        const newComment = {
-            comment_id: randomId,
-            body: newCommentBody,
-            article_id: 0,
-            author: user,
-            votes: 0,
-            created_at: rightNow.toISOString()
+        if (newCommentBody.length===0){
+            setError({"message":"Comment cannot be empty"})
         }
-        setCommentPending(true)
-        setComments((currentComments) =>{
-            return [newComment, ...currentComments]
-        });
-        setNewCommentBody('');
-
-        // send API request and process response
-        postComment(article_id, {username: user, body:newCommentBody})
-        .then((data) => {
-            setError(null);
+        else {
+            // set everything locally
+            const rightNow = new Date(Date.now())
+            const randomId = generateId(12)
+            const newComment = {
+                comment_id: randomId,
+                body: newCommentBody,
+                article_id: 0,
+                author: user,
+                votes: 0,
+                created_at: rightNow.toISOString()
+            }
+            setCommentPending(true)
             setComments((currentComments) =>{
-                const commentPosition = currentComments.findIndex(comment => comment.comment_id === randomId);
-                const refreshedComments = [...currentComments]
-                refreshedComments[commentPosition] = data.comment;
-                return refreshedComments
+                return [newComment, ...currentComments]
             });
-        })
-        .catch((error)=>{
-            setError(error);
-        })
-        .finally(()=>{
-            setCommentPending(false);
-            setComments((currentComments)=> {return currentComments});
-        })
-    }
+            setNewCommentBody('');
+            setError(null);
 
-    const buttonDisabled = (newCommentBody.length===0 || commentPending)
+            // send API request and process response
+            postComment(article_id, {username: user, body:newCommentBody})
+            .then((data) => {
+                setError(null);
+                setComments((currentComments) =>{
+                    const commentPosition = currentComments.findIndex(comment => comment.comment_id === randomId);
+                    const refreshedComments = [...currentComments]
+                    refreshedComments[commentPosition] = data.comment;
+                    return refreshedComments
+                });
+            })
+            .catch((error)=>{
+                setError(error);
+            })
+            .finally(()=>{
+                setCommentPending(false);
+                setComments((currentComments)=> {return currentComments});
+            })
+        }    
+    }
 
     return (
         <>  
@@ -77,7 +81,7 @@ export default function CommentForm(props){
                     <label className = "float-start" htmlFor = "comment-box" >Comment:</label>
                     <textarea id = "comment-box" className="form-control" rows= "3" value={newCommentBody} onChange={(event) => setNewCommentBody(event.target.value)}></textarea>
                     {error && <p className = "float-start mt-3">An error occured: {error.message}</p>}
-                    <button type = "submit" className="native-button native-border float-end my-3" disabled = {buttonDisabled}>Add Comment</button>
+                    <button type = "submit" className="native-button native-border float-end my-3" disabled = {commentPending}>Add Comment</button>
                 </form>
             </section>
         </>
