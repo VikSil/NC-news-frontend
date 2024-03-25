@@ -16,7 +16,7 @@ export default function Article(){
     const { user } = useContext(UserContext);
 
     const[currentArticle, setCurrentArticle] = useState({});
-    const [comments, setComments] = useState([{}]);
+    
 
     const [isLoading, setIsLoading] = useState(true)
     const [error, setError] = useState(null);
@@ -39,7 +39,7 @@ export default function Article(){
         <main className="d-flex flex-column justify-content-center mx-5 mt-4">    
             <Post post = {currentArticle} postType = "article"/>
             {currentArticle.author!==user && <CommentForm setComments= {setComments} article_id={article_id}/>}
-            <CommentsList article_id= {article_id} comments = {comments} setComments= {setComments}/>
+            <CommentsList article_id= {article_id} />
         </main> 
     )
   
