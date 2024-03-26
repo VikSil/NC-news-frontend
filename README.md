@@ -4,6 +4,8 @@ This repository contains a website that was developed during [Northcoders Softwa
 
 **Hosted version of the website is available [here](https://ncnews-by-viksil.netlify.app/).** Please note that the website is very slow to load due to free tier of Render in the backend.
 
+Video demo of the website can be viewed [here](https://youtu.be/Kdx5pjnXCHc).
+
 The backend repo can be found [here](https://github.com/VikSil/NC-news-backend-API).
 
 Instructions below will explain how to run this website locally.
