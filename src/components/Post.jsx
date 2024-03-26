@@ -13,7 +13,7 @@ export default function Post(props){
     
     const created = post.created_at.slice(0,10) + " " + post.created_at.slice(11,16)
 
-    const differentUser = !(post.author === user)
+    const differentUser = (post.author !== user.username)
 
     const rootClassName = `${postType} flex-fill native-border my-3 mx-4 py-3 px-4 `
 

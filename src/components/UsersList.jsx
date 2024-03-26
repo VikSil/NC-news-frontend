@@ -10,7 +10,7 @@ import Loading from './Loading'
 import Error from './Error'
 
 export default function UsersList(){
-    const {user, setUser} = useContext(UserContext)
+    const {setUser} = useContext(UserContext)
 
     const [allUsers, setAllUsers] = useState([{}])
 
@@ -42,7 +42,7 @@ export default function UsersList(){
                         setUser(user)
                     }
                     return (                        
-                        <NavCard contentType = "avatar" helperFunction = {helperFunction} linkTo={"/"} user = {user}/> 
+                        <NavCard key = {index} contentType = "avatar" helperFunction = {helperFunction} linkTo={"/"} user = {user}/> 
                    )
                })
             }

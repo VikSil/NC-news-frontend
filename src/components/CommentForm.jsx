@@ -42,7 +42,7 @@ export default function CommentForm(props){
                 comment_id: randomId,
                 body: newCommentBody,
                 article_id: 0,
-                author: user,
+                author: user.username,
                 votes: 0,
                 created_at: rightNow.toISOString()
             }
@@ -54,7 +54,7 @@ export default function CommentForm(props){
             setError(null);
 
             // send API request and process response
-            postComment(article_id, {username: user, body:newCommentBody})
+            postComment(article_id, {username: user.username, body:newCommentBody})
             .then((data) => {
                 setError(null);
                 setComments((currentComments) =>{
