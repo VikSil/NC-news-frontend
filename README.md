@@ -2,8 +2,11 @@
 
 This repository contains a website that was developed during [Northcoders Software Engineering Bootcamp](https://northcoders.com/our-courses/coding-bootcamp), front-end project week. It constitutes a news website with articles on various topics, where users can  view articles by category, up-vote and down-vote articles by other users, comment on articles and delete their own comments.
 
+<p align = "center">
+<img height= "280" src="https://raw.githubusercontent.com/VikSil/NC-news-frontend/main/src/assets/img/GIF_demo.gif" alt="NC News website demo GIF"/>
+</p>
+
 **Hosted version of the website is available [here](https://ncnews-by-viksil.netlify.app/).** Please note that the website is very slow to load due to free tier of Render in the backend.<br>
-❗❗ The hosted version of the website was mistakenly marked by Google as a phishing site. I have submitted an appeal, in the mean time you may want to watch the video below. ❗❗ 
 
 Video demo of the website can be viewed [here](https://youtu.be/Kdx5pjnXCHc).
 
