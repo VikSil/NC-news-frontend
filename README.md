@@ -76,19 +76,19 @@ You should now be able to view the website by inputting the **Local** address in
 ### Wireframes
 The wireframes below illustrate the layout of the website.
 
-[<img src="https://i.imgur.com/uPeucE8.png" alt="Server running message" width="1000"/>](https://i.imgur.com/uPeucE8.png)
+[<img src="https://i.imgur.com/uPeucE8.png" alt="Articles List wireframe" width="1000"/>](https://i.imgur.com/uPeucE8.png)
 
-[<img src="https://i.imgur.com/AeYRTW8.png" alt="Server running message" width="1000"/>](https://i.imgur.com/AeYRTW8.png)
+[<img src="https://i.imgur.com/AeYRTW8.png" alt="Article wireframe" width="1000"/>](https://i.imgur.com/AeYRTW8.png)
 
-[<img src="https://i.imgur.com/nTI0sVh.png" alt="Server running message" width="1000"/>](https://i.imgur.com/nTI0sVh.png)
+[<img src="https://i.imgur.com/nTI0sVh.png" alt="User page wireframe" width="1000"/>](https://i.imgur.com/nTI0sVh.png)
 
-[<img src="https://i.imgur.com/lVBxDuJ.png" alt="Server running message" width="1000"/>](https://i.imgur.com/lVBxDuJ.png)
+[<img src="https://i.imgur.com/lVBxDuJ.png" alt="Loading and Error page wireframes" width="1000"/>](https://i.imgur.com/lVBxDuJ.png)
 
 ### Component Tree Diagram
 
 The component diagram below illustrates the component hierarchy, along with the states and properies used within the website.
 
-[<img src="https://i.imgur.com/3LNiG90.png" alt="Server running message" width="1000"/>](https://i.imgur.com/3LNiG90.png)
+[<img src="https://i.imgur.com/3LNiG90.png" alt="Component Tree Diagram" width="1000"/>](https://i.imgur.com/3LNiG90.png)
 
 ## Disclaimer
 
